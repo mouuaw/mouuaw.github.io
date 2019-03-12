@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="6.1 반환 값함수 바디안에 return 키워드를 사용하면 함수를 즉시 종료하고 값을 반환합니다. 6.2 호출과 참조자바스크립트에서는 함수도 객체입니다. 따라서 다른 객체와 마찬가지로 넘기거나 할당할 수 있습니다. 함수 식별자 뒤에 괄호를 쓰면 자바스크립트는 함수를 호출하려 한다고 이해하고, 함수 바디를 실행합니다. 그리고 함수를 호출한 표현식은 반환값이">
+<meta name="keywords" content="러닝자바스크립트">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CH6 함수">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/learningJavascript-ch6/index.html">
+<meta property="og:site_name" content="Mouuaw">
+<meta property="og:description" content="6.1 반환 값함수 바디안에 return 키워드를 사용하면 함수를 즉시 종료하고 값을 반환합니다. 6.2 호출과 참조자바스크립트에서는 함수도 객체입니다. 따라서 다른 객체와 마찬가지로 넘기거나 할당할 수 있습니다. 함수 식별자 뒤에 괄호를 쓰면 자바스크립트는 함수를 호출하려 한다고 이해하고, 함수 바디를 실행합니다. 그리고 함수를 호출한 표현식은 반환값이">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-12T12:02:26.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CH6 함수">
+<meta name="twitter:description" content="6.1 반환 값함수 바디안에 return 키워드를 사용하면 함수를 즉시 종료하고 값을 반환합니다. 6.2 호출과 참조자바스크립트에서는 함수도 객체입니다. 따라서 다른 객체와 마찬가지로 넘기거나 할당할 수 있습니다. 함수 식별자 뒤에 괄호를 쓰면 자바스크립트는 함수를 호출하려 한다고 이해하고, 함수 바디를 실행합니다. 그리고 함수를 호출한 표현식은 반환값이">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CH6 함수</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/01/10/ngrx-tutorial-01/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/01/01/ionic-issue-01/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/01/02/learningJavascript-ch6/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&text=CH6 함수"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&is_video=false&description=CH6 함수"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CH6 함수&body=Check out this article: http://yoursite.com/2019/01/02/learningJavascript-ch6/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&name=CH6 함수&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-반환-값"><span class="toc-number">1.</span> <span class="toc-text">6.1 반환 값</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-호출과-참조"><span class="toc-number">2.</span> <span class="toc-text">6.2 호출과 참조</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-함수와-매개변수"><span class="toc-number">3.</span> <span class="toc-text">6.3 함수와 매개변수</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-1-매개변수가-함수를-결정하는가"><span class="toc-number">3.1.</span> <span class="toc-text">6.3.1 매개변수가 함수를 결정하는가?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-2-매개변수-해체"><span class="toc-number">3.2.</span> <span class="toc-text">6.3.2 매개변수 해체</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-3-매개변수-기본값"><span class="toc-number">3.3.</span> <span class="toc-text">6.3.3 매개변수 기본값</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-객체의-프로퍼티인-함수"><span class="toc-number">4.</span> <span class="toc-text">6.4 객체의 프로퍼티인 함수</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CH6 함수
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Mouuaw</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-01-02T10:54:18.000Z" itemprop="datePublished">2019-01-02</time>
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/러닝자바스크립트/">러닝자바스크립트</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="6-1-반환-값"><a href="#6-1-반환-값" class="headerlink" title="6.1 반환 값"></a>6.1 반환 값</h2><p>함수 바디안에 return 키워드를 사용하면 함수를 즉시 종료하고 값을 반환합니다.</p>
+<h2 id="6-2-호출과-참조"><a href="#6-2-호출과-참조" class="headerlink" title="6.2 호출과 참조"></a>6.2 호출과 참조</h2><p>자바스크립트에서는 함수도 객체입니다. 따라서 다른 객체와 마찬가지로 넘기거나 할당할 수 있습니다. 함수 식별자 뒤에 괄호를 쓰면 자바스크립트는 함수를 호출하려 한다고 이해하고, 함수 바디를 실행합니다. 그리고 함수를 호출한 표현식은 반환값이 됩니다. 괄호를 쓰지 않으면 다른 값과 마찬가지로 함수를 참조하는 것이며, 그 함수는 실행되지 않습니다.</p>
+<p>함수를 호출하지 않고 다른 값과 마찬가지로 참조하기만 할 수 있다는 특징은 자바스크립트를 매우 유연한 언어로 만듭니다. 예를 들어 함수를 변수에 할당하면 다른 이름으로 함수를 호출할 수 있습니다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getGreeting(); <span class="comment">// "Hello, World!"</span></span><br><span class="line">getGreeting; <span class="comment">// function getGreeting()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = getGreeting;</span><br><span class="line">f(); <span class="comment">//"Hello, World!"</span></span><br></pre></td></tr></table></figure>
+<p>함수를 객체 프로퍼티에 할당할 수도 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="number">0</span> = &#123;&#125;;</span><br><span class="line">o.f = getGreeting;</span><br><span class="line">o.f(); <span class="comment">// "Hello, World!"</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-3-함수와-매개변수"><a href="#6-3-함수와-매개변수" class="headerlink" title="6.3 함수와 매개변수"></a>6.3 함수와 매개변수</h2><p>함수를 호출하면서 정보를 전달할 때는 함수 매개변수를 이용합니다. 매개변수는 함수가 호출되기 전에는 존재하지 않는다는 점을 제외하면 일반적인 변수나 마찬가지입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">avg</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (a*b)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 함수 선언에서 a와 b를 정해진 매개변수라고 합니다. 함수가 호출되면 정해진 매개변수는 값을 받아 실제 매개변수가 됩니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avg(<span class="number">5</span>, <span class="number">10</span>); <span class="comment">// 7.5</span></span><br></pre></td></tr></table></figure>
+<p>실제 매개변수는 변수와 매우 비슷하지만, 함수 바디 안에서만 존재합니다. 함수를 호출하면 함수 매개변수는 변수 자체가 아니라 그 값을 전달받습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`f 내부: x=<span class="subst">$&#123;x&#125;</span>`</span>);</span><br><span class="line">  x = <span class="number">5</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`f 내부: x=<span class="subst">$&#123;x&#125;</span> (할당 후)`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`f를 호출하기 전: x=<span class="subst">$&#123;x&#125;</span>`</span>);</span><br><span class="line">f(x);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`f를 호출한 다음: x=<span class="subst">$&#123;x&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 결과</span></span><br><span class="line"><span class="comment">  f를 호출하기 전: x=3</span></span><br><span class="line"><span class="comment">  f 내부: x=3</span></span><br><span class="line"><span class="comment">  f 내부: x=5 (할당 후)</span></span><br><span class="line"><span class="comment">  f를 호출한 다음: x=3</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>여기서 중요한 것은 함수 안에서 x에 값을 할당하더라도 함수 바깥의 변수 x에는 아무 영향도 없다는 것입니다. 하지만 함수 안에서 객체 자체를 변경하면 그 객체는 함수 바깥에서도 바뀐 점이 반영됩니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">  o.message = <span class="string">`f 안에서 수정함 (이전 값: '<span class="subst">$&#123;o.message&#125;</span>')`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> o = &#123;</span><br><span class="line">  message: <span class="string">"초기 값"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`f를 호출하기 전: o.message=<span class="subst">$&#123;o.message&#125;</span>`</span>);</span><br><span class="line">f(o);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`f를 호출한 다음: o.message=<span class="subst">$&#123;o.message&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 결과</span></span><br><span class="line"><span class="comment">  f를 호출하기 전: o.message="초기 값"</span></span><br><span class="line"><span class="comment">  f를 호출한 다음: o.message="f 안에서 수정함 (이전 값: '초기 값')"</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>위 예제를 보면 함수 f 안에서 객체 o를 수정했고, 이렇게 바꾼 내용은 함수 바깥에서도 o에 그대로 반영되어 있음을 알 수 있습니다.</p>
+<h3 id="6-3-1-매개변수가-함수를-결정하는가"><a href="#6-3-1-매개변수가-함수를-결정하는가" class="headerlink" title="6.3.1 매개변수가 함수를 결정하는가?"></a>6.3.1 매개변수가 함수를 결정하는가?</h3><p>여러 언어에서 함수의 시그니처에는 매개변수가 포함됩니다. 예를 들어 C언어에서 매개변수 없는 함수 f() 는 매개변수가 하나인 함수 f(x)와 다르고, f(x)는 매개변수가 두 개인 함수 f(x, y) 와 다릅니다. 자바스크립트에는 그런 차이가 없습니다. 함수 f가 있다면 호출할 때 매개변수를 한 개 전달하든 열 개 전달하든 같은 함수를 호출하는 겁니다.</p>
+<h3 id="6-3-2-매개변수-해체"><a href="#6-3-2-매개변수-해체" class="headerlink" title="6.3.2 매개변수 해체"></a>6.3.2 매개변수 해체</h3><p>매개변수도 해체가 가능합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSentence</span>(<span class="params">&#123;subject, verb, object&#125;</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;subject&#125;</span> <span class="subst">$&#123;verb&#125;</span> <span class="subst">$&#123;object&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  subject: <span class="string">"I"</span>,</span><br><span class="line">  verb: <span class="string">"love"</span>,</span><br><span class="line">  object: <span class="string">"Javascript"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">getSentence(o); <span class="comment">// "I love Javascript"</span></span><br></pre></td></tr></table></figure>
+<p>해체 할당과 마찬가지로 프로퍼티 이름은 반드시 유효한 식별자여야 하고, 들어오는 객체에 해당 프로퍼티가 없는 변수는 undefined를 할당받습니다.</p>
+<p>함수를 선언할 때 확산 연산자는 반드시 마지막 매개변수여야 합니다. 확산 연산자 뒤에 다른 매개변수가 있으면 자바스크립트는 전달된 값 중 어디까지를 확산 매개변수에 할당해야 하는지 판단할 수 없어서 에러를 일으킵니다.</p>
+<h3 id="6-3-3-매개변수-기본값"><a href="#6-3-3-매개변수-기본값" class="headerlink" title="6.3.3 매개변수 기본값"></a>6.3.3 매개변수 기본값</h3><p>ES6에서는 매개변수에 기본값을 지정하는 기능도 추가됐습니다. 일반적으로 매개변수에 값을 제공하지 않으면 undefined가 값으로 할당됩니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a, b=<span class="string">"default"</span>, c=<span class="number">3</span></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;a&#125;</span> - <span class="subst">$&#123;b&#125;</span> - <span class="subst">$&#123;c&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>); <span class="comment">// 5 - 6 - 7</span></span><br><span class="line">f(<span class="number">5</span>,<span class="number">6</span>); <span class="comment">// 5 - 6 - 3</span></span><br><span class="line">f(<span class="number">5</span>); <span class="comment">// 5 - default - 3</span></span><br><span class="line">f(); <span class="comment">// undefined - default - 3</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-4-객체의-프로퍼티인-함수"><a href="#6-4-객체의-프로퍼티인-함수" class="headerlink" title="6.4 객체의 프로퍼티인 함수"></a>6.4 객체의 프로퍼티인 함수</h2><p>객체의 프로퍼티인 함수를 메서드라고 불러서 일반적인 함수와 구별합니다. 함수와 메서드 사이에는 다른 차이도 있는데 그건 나중에 다시 설명합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  name: <span class="string">"Wallace"</span>, <span class="comment">// 원시 값 프로퍼티</span></span><br><span class="line">  bark: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="string">"Woof!"</span>;&#125; <span class="comment">// 함수 프로퍼티(메서드)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ES6에서는 간편하게 메서드를 추가할 수 있는 문법이 새로 생겼습니다. 다음 예제는 이전 예제와 동일합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  name: <span class="string">'Wallace'</span>, <span class="comment">// 원시 값 프로퍼티</span></span><br><span class="line">  bark() &#123;<span class="keyword">return</span> <span class="string">"Woof!"</span>;&#125; <span class="comment">// 함수 프로퍼티(메서드)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-반환-값"><span class="toc-number">1.</span> <span class="toc-text">6.1 반환 값</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-호출과-참조"><span class="toc-number">2.</span> <span class="toc-text">6.2 호출과 참조</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-함수와-매개변수"><span class="toc-number">3.</span> <span class="toc-text">6.3 함수와 매개변수</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-1-매개변수가-함수를-결정하는가"><span class="toc-number">3.1.</span> <span class="toc-text">6.3.1 매개변수가 함수를 결정하는가?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-2-매개변수-해체"><span class="toc-number">3.2.</span> <span class="toc-text">6.3.2 매개변수 해체</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-3-매개변수-기본값"><span class="toc-number">3.3.</span> <span class="toc-text">6.3.3 매개변수 기본값</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-객체의-프로퍼티인-함수"><span class="toc-number">4.</span> <span class="toc-text">6.4 객체의 프로퍼티인 함수</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/01/02/learningJavascript-ch6/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&text=CH6 함수"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&is_video=false&description=CH6 함수"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CH6 함수&body=Check out this article: http://yoursite.com/2019/01/02/learningJavascript-ch6/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&title=CH6 함수"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/01/02/learningJavascript-ch6/&name=CH6 함수&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Mouuaw
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'mouuawblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

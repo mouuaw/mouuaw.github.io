@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="2장 데이터 타입스칼라스칼라란 단일 차원의 값을 뜻하는 것으로 숫자 1,2,3,… 을 예로 들 수 있다. 반면 평면위의 점 (1,2)는 2차원 값이므로 스칼라에 해당하지 않는다. 숫자정수, 부동소수 등을 숫자형 데이터 타입으로 지원한다. NANA는 Not Available 의 약자로 데이터 값이 없음을 뜻한다.변수에 NA값이 저장되어 있는지는 is.na()">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R - 데이터 타입">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/R-ch2/index.html">
+<meta property="og:site_name" content="Mouuaw">
+<meta property="og:description" content="2장 데이터 타입스칼라스칼라란 단일 차원의 값을 뜻하는 것으로 숫자 1,2,3,… 을 예로 들 수 있다. 반면 평면위의 점 (1,2)는 2차원 값이므로 스칼라에 해당하지 않는다. 숫자정수, 부동소수 등을 숫자형 데이터 타입으로 지원한다. NANA는 Not Available 의 약자로 데이터 값이 없음을 뜻한다.변수에 NA값이 저장되어 있는지는 is.na()">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-12T14:18:47.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R - 데이터 타입">
+<meta name="twitter:description" content="2장 데이터 타입스칼라스칼라란 단일 차원의 값을 뜻하는 것으로 숫자 1,2,3,… 을 예로 들 수 있다. 반면 평면위의 점 (1,2)는 2차원 값이므로 스칼라에 해당하지 않는다. 숫자정수, 부동소수 등을 숫자형 데이터 타입으로 지원한다. NANA는 Not Available 의 약자로 데이터 값이 없음을 뜻한다.변수에 NA값이 저장되어 있는지는 is.na()">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>R - 데이터 타입</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/03/12/cactus-readme/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/12/R-ch2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/12/R-ch2/&text=R - 데이터 타입"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/12/R-ch2/&is_video=false&description=R - 데이터 타입"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R - 데이터 타입&body=Check out this article: http://yoursite.com/2019/03/12/R-ch2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/12/R-ch2/&name=R - 데이터 타입&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2장-데이터-타입"><span class="toc-number">1.</span> <span class="toc-text">2장 데이터 타입</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#스칼라"><span class="toc-number">1.1.</span> <span class="toc-text">스칼라</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#숫자"><span class="toc-number">1.1.1.</span> <span class="toc-text">숫자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NA"><span class="toc-number">1.1.2.</span> <span class="toc-text">NA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NULL"><span class="toc-number">1.1.3.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#문자열"><span class="toc-number">1.1.4.</span> <span class="toc-text">문자열</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#진릿값"><span class="toc-number">1.1.5.</span> <span class="toc-text">진릿값</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#팩터"><span class="toc-number">1.1.6.</span> <span class="toc-text">팩터</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#벡터"><span class="toc-number">1.2.</span> <span class="toc-text">벡터</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-생성"><span class="toc-number">1.2.1.</span> <span class="toc-text">벡터 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-데이터-접근"><span class="toc-number">1.2.2.</span> <span class="toc-text">벡터 데이터 접근</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-연산"><span class="toc-number">1.2.3.</span> <span class="toc-text">벡터 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#연속된-숫자로-구성된-벡터"><span class="toc-number">1.2.4.</span> <span class="toc-text">연속된 숫자로 구성된 벡터</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        R - 데이터 타입
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Mouuaw</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-03-12T13:06:05.000Z" itemprop="datePublished">2019-03-12</time>
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/R/">R</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="2장-데이터-타입"><a href="#2장-데이터-타입" class="headerlink" title="2장 데이터 타입"></a>2장 데이터 타입</h1><h2 id="스칼라"><a href="#스칼라" class="headerlink" title="스칼라"></a>스칼라</h2><p>스칼라란 단일 차원의 값을 뜻하는 것으로 숫자 1,2,3,… 을 예로 들 수 있다. 반면 평면위의 점 (1,2)는 2차원 값이므로 스칼라에 해당하지 않는다.</p>
+<h3 id="숫자"><a href="#숫자" class="headerlink" title="숫자"></a>숫자</h3><p>정수, 부동소수 등을 숫자형 데이터 타입으로 지원한다.</p>
+<h3 id="NA"><a href="#NA" class="headerlink" title="NA"></a>NA</h3><p>NA는 Not Available 의 약자로 데이터 값이 없음을 뜻한다.<br>변수에 NA값이 저장되어 있는지는 is.na() 함수로 확인한다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is.na(</span><br><span class="line">  x <span class="comment"># R의 데이터 객체</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="literal">NA</span>가 저장되어 있으면 <span class="literal">TRUE</span>, 그렇지 않으면 <span class="literal">FALSE</span>를 반환한다.</span><br></pre></td></tr></table></figure>
+<p>예를들어, 다음은 변수 four에 NA가 저장되어 있음을 확인하는 코드다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; is.na(four)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br></pre></td></tr></table></figure>
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>NULL은 NULL객체를 뜻하며, 변수가 초기화되지 않았을 때 사용한다. NULL은 NA와 구분해서 생각해야 한다. 어떤 변수에 NULL이 저장되어 있는지는 is.null()을 사용해 판단할 수 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is.null(</span><br><span class="line">  x <span class="comment"># R의 데이터 객체</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">반환 값은 <span class="literal">NULL</span>이 저장되어 있으면 <span class="literal">TRUE</span>, 그렇지 않으면 <span class="literal">FALSE</span>다.</span><br></pre></td></tr></table></figure>
+<p>다음은 is.null을 사용하는 예제이다</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="literal">NULL</span></span><br><span class="line">&gt; is.null(x)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line">&gt; is.null(<span class="number">1</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line">&gt; is.null(<span class="literal">NA</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line">&gt; is.na(<span class="literal">NULL</span>)</span><br><span class="line">logical(<span class="number">0</span>)</span><br><span class="line">Warning message:</span><br><span class="line">In is.na(<span class="literal">NULL</span>) : is.na() applied to non-(list or vector) of type <span class="string">'NULL'</span></span><br></pre></td></tr></table></figure>
+<h3 id="문자열"><a href="#문자열" class="headerlink" title="문자열"></a>문자열</h3><p>R은 모든 문자를 문자열로 처리한다.</p>
+<h3 id="진릿값"><a href="#진릿값" class="headerlink" title="진릿값"></a>진릿값</h3><p>TRUE, T는 모두 참 값을 의미한다. FALSE, F는 거짓 값을 의미한다. 진리값에는 &amp;(AND), |(OR), !(NOT) 연산자를 사용할 수 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="literal">TRUE</span> &amp; <span class="literal">TRUE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line">&gt; <span class="literal">TRUE</span> &amp; <span class="literal">FALSE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line">&gt; <span class="literal">TRUE</span> | <span class="literal">TRUE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line">&gt; <span class="literal">TRUE</span> | <span class="literal">FALSE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br><span class="line">&gt; !<span class="literal">TRUE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></span><br><span class="line">&gt; !<span class="literal">FALSE</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></span><br></pre></td></tr></table></figure>
+<p>좀 더 엄밀히 말하면 TRUE와 FALSE는 예약어고 T, F는 각각 TRUE와 FALSE로 초기화된 전역 변수다. 따라서 다음과 같이 T에 FALSE를 할당하는 것이 가능하다! 반면 TRUE는 예약어 이므로 FALSE를 할당할 수 없다. 이런 이유로 TRUE, FALSE 대신 T, F라는 축약 표현을 사용할 때는 주의가 필요하다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="literal">T</span> &lt;- <span class="literal">FALSE</span></span><br><span class="line">&gt; <span class="literal">TRUE</span> &lt;- <span class="literal">FALSE</span></span><br><span class="line">Error <span class="keyword">in</span> <span class="literal">TRUE</span> &lt;- <span class="literal">FALSE</span> : invalid (do_set) left-hand side to assignment</span><br></pre></td></tr></table></figure>
+<p>AND나 OR 연산자에는 &amp;, | 외에도 &amp;&amp;와 ||가 있다. 이들의 차이점은 &amp;, | 는 진리값이 저장된 벡터끼리 연산할 때 요소별로 계산을 한다는 점이다.<br>&amp;&amp;, || 의 경우 벡터의 요소 간 계산을 하기 위함이 아니라 TRUE &amp;&amp; TRUE 등의 경우와 같이 두 개의 진리값끼리 연산을 하기 위한 연산자다.</p>
+<h3 id="팩터"><a href="#팩터" class="headerlink" title="팩터"></a>팩터</h3><p>팩터(Factor) 는 범주형 데이터를 표현하기 위한 테이터 타입이다.</p>
+<p>범주형 데이터란 데이터가 사전에 정해진 특정 유형으로만 분류되는 경우를 뜻한다.<br>범주형 테이터는 또 다시 명목형과 순서형으로 구분된다. 명목형 데이터는 값들 간에 크기 비교가 불가능한 경우를 뜻한다. 반면 순서형 데이터는 대,중,소와 같이 값에 순서를 둘 수 있는 경우를 말한다.</p>
+<ul>
+<li>팩터 관련 함수</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">factor( <span class="comment"># 팩터 값을 생성한다</span></span><br><span class="line">  X, <span class="comment"># 팩터로 표현하고자 하는 값</span></span><br><span class="line">  levels, <span class="comment"># 값의 레벨</span></span><br><span class="line">  ordered <span class="comment"># TRUE면 순서형, FALSE면 명목형 데이터를 뜻한다. 기본값은 FALSE</span></span><br><span class="line">)</span><br><span class="line">반환 값은 팩터형 데이터 값이다.</span><br><span class="line"></span><br><span class="line">nlevels( <span class="comment"># 팩터에서 레벨의 개수를 반환한다.</span></span><br><span class="line">  x <span class="comment"># 팩터 값 </span></span><br><span class="line">)</span><br><span class="line">반환 값은 팩터 값의 레벨 개수다.</span><br><span class="line"></span><br><span class="line">levels( <span class="comment"># 팩터에서 레벨의 목록을 반환한다.</span></span><br><span class="line">  x <span class="comment"># 팩터 값</span></span><br><span class="line">)</span><br><span class="line">반환 값은 팩터에서 레벨의 목록이다.</span><br><span class="line"></span><br><span class="line">is.factor( <span class="comment"># 주어진 값이 팩터인지를 판단한다.</span></span><br><span class="line">  x <span class="comment"># R 객체</span></span><br><span class="line">)</span><br><span class="line">반환 값은 x가 팩터면 <span class="literal">TRUE</span>, 그렇지 않으면 <span class="literal">FALSE</span>다.</span><br><span class="line"></span><br><span class="line">ordered( <span class="comment"># 순서형 팩터를 생성한다.</span></span><br><span class="line">  x <span class="comment"># 팩터로 표현하고자 하는 값(주로 문자열 백터로 지정)</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">is.ordered( <span class="comment"># 순서형 팩터인지를 판단한다.</span></span><br><span class="line">  x <span class="comment"># R 객체</span></span><br><span class="line">)</span><br><span class="line">반환 값은 x가 순서형 팩터면 <span class="literal">TRUE</span>, 그렇지 않으면 <span class="literal">FALSE</span>다.</span><br></pre></td></tr></table></figure>
+<h2 id="벡터"><a href="#벡터" class="headerlink" title="벡터"></a>벡터</h2><p>벡터는 다른 프로그래밍 언어에서 흔히 접하는 배열의 개념으로, 한 가지 스칼라 데이터 타입의 데이터를 저장할 수 있다. 예를 들면, 숫자만 저장하는 배열, 문자열만 저장하는 배열이 벡터에 해당한다.</p>
+<h3 id="벡터-생성"><a href="#벡터-생성" class="headerlink" title="벡터 생성"></a>벡터 생성</h3><p>벡터는 c()를 사용해 생성하고, names()를 사용해 이름을 부여할 수 있다. 아래는 벡터 관련 함수이다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">주어진 값들을 모아 벡터를 생성한다.</span><br><span class="line">c(</span><br><span class="line">  <span class="keyword">...</span> <span class="comment"># 벡터로 모을 객체들</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">names: 객체의 이름을 반환한다.</span><br><span class="line">names(</span><br><span class="line">  x <span class="comment"># 이름을 얻어올 R 객체</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">names&lt;-: 객체에 이름을 저장한다.</span><br><span class="line">names(</span><br><span class="line">  x <span class="comment"># 이름을 저장할 R 객체</span></span><br><span class="line">) &lt;- value <span class="comment"># 저장할 이름</span></span><br></pre></td></tr></table></figure>
+<h3 id="벡터-데이터-접근"><a href="#벡터-데이터-접근" class="headerlink" title="벡터 데이터 접근"></a>벡터 데이터 접근</h3><p>벡터 데이터에 접근하는 문법을 알아보자</p>
+<ul>
+<li>x[n] : 벡터의 n번째 요소,</li>
+<li>x[-n] : 벡터의 n번째 요소를 제외한 나머지</li>
+<li>x[idx_vector] : idx_vector에 지정된 요소를 얻어옴</li>
+<li>x[start:end] : start 부터 end 까지의 값을 반환함</li>
+</ul>
+<p>벡터의 길이 관련 함수<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">length: 객체의 길이를 반환한다.</span><br><span class="line">length(</span><br><span class="line">  x <span class="comment"># R 객체, 팩터, 배열, 리스트를 지정한다.</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">NROW: 배열의 행 또는 열의 수를 반환한다</span><br><span class="line">NROW(</span><br><span class="line">  x <span class="comment"># 벡터, 배열 또는 데이터 프레임</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h3 id="벡터-연산"><a href="#벡터-연산" class="headerlink" title="벡터 연산"></a>벡터 연산</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">identical: 객체가 동일한지를 판단한다.</span><br><span class="line">identical(x, y)</span><br><span class="line"></span><br><span class="line">union: 합집합을 구한다.</span><br><span class="line">union(x, y)</span><br><span class="line"></span><br><span class="line">intersect: 교집합을 구한다.</span><br><span class="line">intersect(x, y)</span><br><span class="line"></span><br><span class="line">setdiff: 차집합을 구한다.</span><br><span class="line">setdiff(x, y)</span><br><span class="line"></span><br><span class="line">setequal: x와 y가 같은 집합인지 판단한다.</span><br><span class="line">setequal(x, y)</span><br></pre></td></tr></table></figure>
+<p>다음은 벡터 연산자들이다.</p>
+<ul>
+<li>value %in% x : 벡터에 value가 저장되어 있는지 판단함</li>
+<li>x + n : 벡터의 모든 요소에 n을 더한 벡터를 구함</li>
+</ul>
+<h3 id="연속된-숫자로-구성된-벡터"><a href="#연속된-숫자로-구성된-벡터" class="headerlink" title="연속된 숫자로 구성된 벡터"></a>연속된 숫자로 구성된 벡터</h3><p>R에서는 연속된 데이터를 다룰 수 있는 벡터가 존재</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2장-데이터-타입"><span class="toc-number">1.</span> <span class="toc-text">2장 데이터 타입</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#스칼라"><span class="toc-number">1.1.</span> <span class="toc-text">스칼라</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#숫자"><span class="toc-number">1.1.1.</span> <span class="toc-text">숫자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NA"><span class="toc-number">1.1.2.</span> <span class="toc-text">NA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NULL"><span class="toc-number">1.1.3.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#문자열"><span class="toc-number">1.1.4.</span> <span class="toc-text">문자열</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#진릿값"><span class="toc-number">1.1.5.</span> <span class="toc-text">진릿값</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#팩터"><span class="toc-number">1.1.6.</span> <span class="toc-text">팩터</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#벡터"><span class="toc-number">1.2.</span> <span class="toc-text">벡터</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-생성"><span class="toc-number">1.2.1.</span> <span class="toc-text">벡터 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-데이터-접근"><span class="toc-number">1.2.2.</span> <span class="toc-text">벡터 데이터 접근</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-연산"><span class="toc-number">1.2.3.</span> <span class="toc-text">벡터 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#연속된-숫자로-구성된-벡터"><span class="toc-number">1.2.4.</span> <span class="toc-text">연속된 숫자로 구성된 벡터</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/12/R-ch2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/12/R-ch2/&text=R - 데이터 타입"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/12/R-ch2/&is_video=false&description=R - 데이터 타입"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R - 데이터 타입&body=Check out this article: http://yoursite.com/2019/03/12/R-ch2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/12/R-ch2/&title=R - 데이터 타입"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/12/R-ch2/&name=R - 데이터 타입&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Mouuaw
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'mouuawblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="출처해당 사이트의 설명을 대부분 참조했고 제 나름대로의 설명을 추가했습니다.https://coursetro.com 프로젝트 생성angular-cli를 이용해서 프로젝트를 생성합니다. 12ng new ngrx-tutcd ngrx-tut 프로젝트에 ngrx/store 를 설치합니다.1npm install @ngrx/store --save 작업을 위해 프로젝트를">
+<meta name="keywords" content="Ngrx,Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ngrx 튜토리얼 - Store">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/ngrx-tutorial-01/index.html">
+<meta property="og:site_name" content="Mouuaw">
+<meta property="og:description" content="출처해당 사이트의 설명을 대부분 참조했고 제 나름대로의 설명을 추가했습니다.https://coursetro.com 프로젝트 생성angular-cli를 이용해서 프로젝트를 생성합니다. 12ng new ngrx-tutcd ngrx-tut 프로젝트에 ngrx/store 를 설치합니다.1npm install @ngrx/store --save 작업을 위해 프로젝트를">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-12T12:02:26.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ngrx 튜토리얼 - Store">
+<meta name="twitter:description" content="출처해당 사이트의 설명을 대부분 참조했고 제 나름대로의 설명을 추가했습니다.https://coursetro.com 프로젝트 생성angular-cli를 이용해서 프로젝트를 생성합니다. 12ng new ngrx-tutcd ngrx-tut 프로젝트에 ngrx/store 를 설치합니다.1npm install @ngrx/store --save 작업을 위해 프로젝트를">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Ngrx 튜토리얼 - Store</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/01/15/ionic-issue-02/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/01/02/learningJavascript-ch6/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/01/10/ngrx-tutorial-01/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&text=Ngrx 튜토리얼 - Store"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&is_video=false&description=Ngrx 튜토리얼 - Store"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ngrx 튜토리얼 - Store&body=Check out this article: http://yoursite.com/2019/01/10/ngrx-tutorial-01/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&name=Ngrx 튜토리얼 - Store&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#출처"><span class="toc-number">1.</span> <span class="toc-text">출처</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#프로젝트-생성"><span class="toc-number">2.</span> <span class="toc-text">프로젝트 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-생성"><span class="toc-number">3.</span> <span class="toc-text">Model 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action-생성"><span class="toc-number">4.</span> <span class="toc-text">Action 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer-생성"><span class="toc-number">5.</span> <span class="toc-text">Reducer 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-State-생성"><span class="toc-number">6.</span> <span class="toc-text">App State 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app-module-ts-변경"><span class="toc-number">7.</span> <span class="toc-text">app.module.ts 변경</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-생성"><span class="toc-number">8.</span> <span class="toc-text">Component 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Component"><span class="toc-number">9.</span> <span class="toc-text">Read Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Component"><span class="toc-number">10.</span> <span class="toc-text">Create Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remove-구현"><span class="toc-number">11.</span> <span class="toc-text">Remove 구현</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Ngrx 튜토리얼 - Store
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Mouuaw</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-01-10T07:52:19.000Z" itemprop="datePublished">2019-01-10</time>
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Angular/">Angular</a>, <a class="tag-link" href="/tags/Ngrx/">Ngrx</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h2><p>해당 사이트의 설명을 대부분 참조했고 제 나름대로의 설명을 추가했습니다.<br><a href="https://coursetro.com/posts/code/151/Angular-Ngrx-Store-Tutorial---Learn-Angular-State-Management" target="_blank" rel="noopener">https://coursetro.com</a></p>
+<h2 id="프로젝트-생성"><a href="#프로젝트-생성" class="headerlink" title="프로젝트 생성"></a>프로젝트 생성</h2><p>angular-cli를 이용해서 프로젝트를 생성합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ng new ngrx-tut</span><br><span class="line"><span class="built_in">cd</span> ngrx-tut</span><br></pre></td></tr></table></figure>
+<p>프로젝트에 ngrx/store 를 설치합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @ngrx/store --save</span><br></pre></td></tr></table></figure></p>
+<p>작업을 위해 프로젝트를 띄워봅시다</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng serve</span><br></pre></td></tr></table></figure>
+<p>별 다른 작업을 하지않았다면 다음 링크로 프로젝트를 볼 수 있습니다.<br><a href="http://localhost:4200" target="_blank" rel="noopener">http://localhost:4200</a></p>
+<h2 id="Model-생성"><a href="#Model-생성" class="headerlink" title="Model 생성"></a>Model 생성</h2><p>다음 경로에 파일을 생성하고 모델을 정의해봅시다.<br>/src/app/models/tutorial.model.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> interface Tutorial &#123;</span><br><span class="line">  name: string;</span><br><span class="line">  url: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Action-생성"><a href="#Action-생성" class="headerlink" title="Action 생성"></a>Action 생성</h2><p>ngrx에서 사용되는 Action은 두가지 요소를 가지고 있습니다.</p>
+<ol>
+<li>type: 보통 Action의 이름을 정의합니다. </li>
+<li>payload: Action에 필요한 parameters를 저장할 수 있는 객체입니다.</li>
+</ol>
+<p>Action는 마치 Event의 이름들을 정의해놓은 느낌이 있습니다. 여기서 정의한 Action을 Reducer에서 사용하며 Action.type을 통해 각각의 동작을 정의해주게 됩니다.</p>
+<p>다음 경로에 Action을 생성해봅시다.<br>/src/app/actions/tutorial.actions.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Action &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'../models/tutorial.model'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TUTORIAL = <span class="string">'[TUTORIAL] Add'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> REMOVE_TUTORIAL = <span class="string">'[TUTORIAL] Remove'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTutorial</span> <span class="title">implements</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">  readonly type = ADD_TUTORIAL</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(public payload: Tutorial) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">REmoveTutorial</span> <span class="title">implements</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">  readonly type = REMOVE_TUTORIAL</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(public payload: number) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> type Actions = AddTutorial | RemoveTutorial</span><br></pre></td></tr></table></figure></p>
+<h2 id="Reducer-생성"><a href="#Reducer-생성" class="headerlink" title="Reducer 생성"></a>Reducer 생성</h2><p>앞서 말했던것처럼 Reducer는 입력된 Action의 type을 통해 해야 할 동작을 명시해줍니다. MVC의 Controller 느낌이랑 비슷합니다.</p>
+<p>다음 경로에 Reducer를 생성해봅시다.<br>/src/app/reducers/tutorial.reducer.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Action &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'../models/tutorial.model'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> TutorialActions <span class="keyword">from</span> <span class="string">'../actions/tutorial.actions'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Section 1</span></span><br><span class="line"><span class="keyword">const</span> initialState: Tutorial = &#123;</span><br><span class="line">  name: <span class="string">'Initial Tutorial'</span>,</span><br><span class="line">  url: <span class="string">'http://google.com'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">tutorialReducer</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  state: Tutorial[] = [initialState], </span></span></span><br><span class="line"><span class="function"><span class="params">  action: TutorialActions.Actions</span></span></span><br><span class="line"><span class="function"><span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// Section 2</span></span><br><span class="line">  <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> TutorialActions.ADD_TUTORIAL:</span><br><span class="line">      <span class="keyword">return</span> [...state, action.payload];</span><br><span class="line">    <span class="keyword">case</span> TutorialActions.REMOVE_TUTORIAL:</span><br><span class="line">      state.splice(action.payload, <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>Section 1<br>초기값으로 사용하기 위한 데이터를 만들어줍니다. 실제로는 데이터가 없을때의 Model을 정의해놓는등 다양하게 활용할 수 있습니다.</p>
+</li>
+<li><p>Section 2<br>switch 문에 action.type을 이용해서 동작 방식을 결정합니다. 여기선 case 안에 로직을 넣어놧지만 상황에 따라 로직을 분리해서 사용하는것도 좋습니다.</p>
+</li>
+</ul>
+<h2 id="App-State-생성"><a href="#App-State-생성" class="headerlink" title="App State 생성"></a>App State 생성</h2><p>State 는 ‘상태’ 라는 말로 번역하기는 좀 이해하기 어려운듯 합니다. 기존의 ‘변수’라는 말과 상당히 유사하게 사용됩니다. component 기반 개발을 하다보면 각각 다른 위치에 있는 component가 같은 데이터를 공유하는 상황이 종종 생기는데, 이를 컴포넌트 자체에서 처리하는건 굉장히 복잡합니다. </p>
+<p>그래서 SingleTon 패턴 형식으로 데이터를 다루게 되는데 여기서 사용되는 App State도 그러한 종류 중 하나로 보면 될듯합니다.</p>
+<p>다음 경로에 app.state.ts를 만들어 봅시다.<br>/src/app/app.state.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'./models/tutorial.model'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface AppState &#123;</span><br><span class="line">  readonly tutorial: Tutorial[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="app-module-ts-변경"><a href="#app-module-ts-변경" class="headerlink" title="app.module.ts 변경"></a>app.module.ts 변경</h2><p>이제 지금까지 만든 store를 등록하는 과정입니다.<br>app.module.ts의 import 에 StoreModule을 추가해 봅시다.<br>/src/app/app.module/ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; AppRoutingModule &#125; <span class="keyword">from</span> <span class="string">'./app-routing.module'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">'./app.component'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; StoreModule &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; tutorialReducer &#125; <span class="keyword">from</span> <span class="string">'./reducers/tutorial.reducer'</span>;</span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    AppComponent,</span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    BrowserModule,</span><br><span class="line">    StoreModule.forRoot(&#123;</span><br><span class="line">      tutorial: tutorialReducer</span><br><span class="line">    &#125;),</span><br><span class="line">    AppRoutingModule</span><br><span class="line">  ],</span><br><span class="line">  providers: [],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Component-생성"><a href="#Component-생성" class="headerlink" title="Component 생성"></a>Component 생성</h2><p>tutorial reducer를 동작할 component를 만들어봅시다</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ng g c <span class="built_in">read</span></span><br><span class="line">ng g c create</span><br></pre></td></tr></table></figure>
+<h2 id="Read-Component"><a href="#Read-Component" class="headerlink" title="Read Component"></a>Read Component</h2><p>해당 경로에 read 컴포넌트를 다음과 같이 작성해줍니다.<br>/src/app/read/read.component.ts</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Observable &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'../models/tutorial.model'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppState &#125; <span class="keyword">from</span> <span class="string">'../app.state'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> TutorialActions <span class="keyword">from</span> <span class="string">'../actions/tutorial.actions'</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: <span class="string">'app-read'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./read.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./read.component.scss'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Section 1</span></span><br><span class="line">  tutorials: Observable&lt;Tutorial[]&gt;;</span><br><span class="line">  <span class="comment">// Section 2</span></span><br><span class="line">  <span class="keyword">constructor</span>(</span><br><span class="line">    private store: Store&lt;AppState&gt;</span><br><span class="line">  ) &#123; </span><br><span class="line">    <span class="keyword">this</span>.tutorials = <span class="keyword">this</span>.store.select(<span class="string">'tutorial'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Section 1<br>tutorials라는 Observable을 정의했습니다. 차후에 HTML에서 사용될 변수입니다.</p>
+</li>
+<li><p>Section 2<br>store.select를 통해 tutorial을 불러왔습니다. app.module.ts의 StoreModule.forRoot({}) 에 정의해둔 reducer를 불러오는 동작을 합니다.</p>
+</li>
+</ul>
+<p>이제 HTML을 작성해봅시다.<br>/src/app/read/read.component.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span> *<span class="attr">ngIf</span>=<span class="string">"tutorials"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Tutorials<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> *<span class="attr">ngFor</span>=<span class="string">"let tutorial of tutorials | async"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> [<span class="attr">href</span>]=<span class="string">"tutorial.url"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123; tutorial.name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>HTML과 Angular 문법이기 때문에 딱히…. 여기서 설명드리지 않겟습니다.<br>그래도 조금 설명 하자면 *ngFor 는 javascript의 for…of 반복문을 생각하시면 됩니다.<br>async는 tutorials가 Observable이기 때문에 AsyncPipe를 사용해서 자동으로 subscribe 해줍니다.</p>
+<p>이제 app.component에서 read.component 를 사용해봅시다.<br> /src/app/app.component.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-create</span>&gt;</span><span class="tag">&lt;/<span class="name">app-create</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app-read</span>&gt;</span><span class="tag">&lt;/<span class="name">app-read</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css도 조금 추가해주겟습니다.</p>
+<p>/src/styles.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Arial'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span>, <span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(50% - 6em);</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">3em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="text"]</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>여기까지가 등록된 리스트를 보는 방법입니다.</p>
+<h2 id="Create-Component"><a href="#Create-Component" class="headerlink" title="Create Component"></a>Create Component</h2><p>ngrx의 동작은 action -&gt; dispatch -&gt; reducer -&gt; state 변경 이런 순 입니다.<br>이런 동작을 잘 알아보기 위해 Create 동작을 해보겟습니다.</p>
+<p>다음과 같이 Create component 를 작성해봅시다<br>/src/app/create/create.component.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppState &#125; <span class="keyword">from</span> <span class="string">'../app.state'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> TutorialActions <span class="keyword">from</span> <span class="string">"../actions/tutorial.actions"</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: <span class="string">'app-create'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./create.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./create.component.scss'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CreateComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(</span><br><span class="line">    private store: Store&lt;AppState&gt;</span><br><span class="line">  ) &#123; &#125;</span><br><span class="line"></span><br><span class="line">  addTutorial(name, url)&#123;</span><br><span class="line">    <span class="keyword">this</span>.store.dispatch(<span class="keyword">new</span> TutorialActions.AddTutorial(&#123;name, url&#125;))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Create Html 입니다.<br>/src/app/create/create.component.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"name"</span> #<span class="attr">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"url"</span> #<span class="attr">url</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"addTutorial(name.value,url.value)"</span>&gt;</span>Add a Tutorial<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CreateComponent 에서 addTutorial() 을 사용하면 TutorialActions.AddTutorial의 action을 통해 해당하는 reducer 동작을 합니다.</p>
+<h2 id="Remove-구현"><a href="#Remove-구현" class="headerlink" title="Remove 구현"></a>Remove 구현</h2><p>remove를 구현하기 위해 read.component.html 을 다음과 같이 바꿔봅시다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span> *<span class="attr">ngIf</span>=<span class="string">"tutorials"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Tutorials<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> *<span class="attr">ngFor</span>=<span class="string">"let tutorial of tutorials | async; let i = index"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> [<span class="attr">href</span>]=<span class="string">"tutorial.url"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123; tutorial.name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"delTutorial(i)"</span>&gt;</span>delete<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>delTutorial을 수행하는 button이 추가되었고 for…of 안에 index를 사용하는 구문이 추가되었습니다.</p>
+<p>이제 read.component.ts 와 tutorial.reducer.ts에 remove 동작을 구현해봅시다.</p>
+<p>/src/app/read/read.component.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Observable &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'../models/tutorial.model'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppState &#125; <span class="keyword">from</span> <span class="string">'../app.state'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> TutorialActions <span class="keyword">from</span> <span class="string">'../actions/tutorial.actions'</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: <span class="string">'app-read'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./read.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./read.component.scss'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  tutorials: Observable&lt;Tutorial[]&gt;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(</span><br><span class="line">    private store: Store&lt;AppState&gt;</span><br><span class="line">  ) &#123; </span><br><span class="line">    <span class="keyword">this</span>.tutorials = <span class="keyword">this</span>.store.select(<span class="string">'tutorial'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 요 부분을 추가해주세요</span></span><br><span class="line">  delTutorial(index)&#123;</span><br><span class="line">    <span class="keyword">this</span>.store.dispatch(<span class="keyword">new</span> TutorialActions.RemoveTutorial(index))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/src/app/reducers/tutorial.reducer.ts<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Action &#125; <span class="keyword">from</span> <span class="string">'@ngrx/store'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Tutorial &#125; <span class="keyword">from</span> <span class="string">'../models/tutorial.model'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> TutorialActions <span class="keyword">from</span> <span class="string">'../actions/tutorial.actions'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initialState: Tutorial = &#123;</span><br><span class="line">  name: <span class="string">'Initial Tutorial'</span>,</span><br><span class="line">  url: <span class="string">'http://google.com'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">tutorialReducer</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  state: Tutorial[] = [initialState], </span></span></span><br><span class="line"><span class="function"><span class="params">  action: TutorialActions.Actions</span></span></span><br><span class="line"><span class="function"><span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> TutorialActions.ADD_TUTORIAL:</span><br><span class="line">      <span class="keyword">return</span> [...state, action.payload];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// remove action을 사용합니다</span></span><br><span class="line">    <span class="keyword">case</span> TutorialActions.REMOVE_TUTORIAL:</span><br><span class="line">      state.splice(action.payload, <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>splice를 사용해 리스트를 삭제하고 있습니다. http통신을 통한 list를 제어할 경우 화면상의 빠른 동작을 위해 리스트 전체를 다시 불러오는게 아니라 삭제된 부분만 클라이언트에서 삭제하는 경우가 많습니다. </p>
+<p>다음번엔 @ngrx/effects 를 공부해보겠습니다.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#출처"><span class="toc-number">1.</span> <span class="toc-text">출처</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#프로젝트-생성"><span class="toc-number">2.</span> <span class="toc-text">프로젝트 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-생성"><span class="toc-number">3.</span> <span class="toc-text">Model 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action-생성"><span class="toc-number">4.</span> <span class="toc-text">Action 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer-생성"><span class="toc-number">5.</span> <span class="toc-text">Reducer 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-State-생성"><span class="toc-number">6.</span> <span class="toc-text">App State 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app-module-ts-변경"><span class="toc-number">7.</span> <span class="toc-text">app.module.ts 변경</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-생성"><span class="toc-number">8.</span> <span class="toc-text">Component 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-Component"><span class="toc-number">9.</span> <span class="toc-text">Read Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Component"><span class="toc-number">10.</span> <span class="toc-text">Create Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remove-구현"><span class="toc-number">11.</span> <span class="toc-text">Remove 구현</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/01/10/ngrx-tutorial-01/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&text=Ngrx 튜토리얼 - Store"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&is_video=false&description=Ngrx 튜토리얼 - Store"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ngrx 튜토리얼 - Store&body=Check out this article: http://yoursite.com/2019/01/10/ngrx-tutorial-01/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&title=Ngrx 튜토리얼 - Store"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/01/10/ngrx-tutorial-01/&name=Ngrx 튜토리얼 - Store&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Mouuaw
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'mouuawblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
