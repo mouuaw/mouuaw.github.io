@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R-R프로그래밍">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/R-ch3/index.html">
+<meta property="og:site_name" content="Mouuaw">
+<meta property="og:description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-16T18:32:19.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R-R프로그래밍">
+<meta name="twitter:description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>R-R프로그래밍</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/03/12/R-ch2/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3/&text=R-R프로그래밍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3/&is_video=false&description=R-R프로그래밍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R-R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3/&name=R-R프로그래밍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-R의-특징"><span class="toc-number">1.</span> <span class="toc-text">01 R의 특징</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-흐름-제어-조건문과-반복문"><span class="toc-number">2.</span> <span class="toc-text">02 흐름 제어(조건문과 반복문)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if"><span class="toc-number">2.1.</span> <span class="toc-text">if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#반복문"><span class="toc-number">2.2.</span> <span class="toc-text">반복문</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-연산"><span class="toc-number">3.</span> <span class="toc-text">03 연산</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#수치-연산"><span class="toc-number">3.1.</span> <span class="toc-text">수치 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-연산"><span class="toc-number">3.2.</span> <span class="toc-text">벡터 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NA의-처리"><span class="toc-number">3.3.</span> <span class="toc-text">NA의 처리</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-함수의-정의"><span class="toc-number">4.</span> <span class="toc-text">04 함수의 정의</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#기본-정의"><span class="toc-number">4.1.</span> <span class="toc-text">기본 정의</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#가변길이-인자"><span class="toc-number">4.2.</span> <span class="toc-text">가변길이 인자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#주첩-함수"><span class="toc-number">4.3.</span> <span class="toc-text">주첩 함수</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-스코프"><span class="toc-number">5.</span> <span class="toc-text">05 스코프</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        R-R프로그래밍
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Mouuaw</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-03-16T16:57:44.000Z" itemprop="datePublished">2019-03-17</time>
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/R/">R</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="01-R의-특징"><a href="#01-R의-특징" class="headerlink" title="01 R의 특징"></a>01 R의 특징</h2><p>(생략)</p>
+<h2 id="02-흐름-제어-조건문과-반복문"><a href="#02-흐름-제어-조건문과-반복문" class="headerlink" title="02 흐름 제어(조건문과 반복문)"></a>02 흐름 제어(조건문과 반복문)</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(cond) &#123;</span><br><span class="line">  cond가 참일 때 실행할 문장</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  cond가 거짓일 때 실행할 문장 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ifelse(</span><br><span class="line">  test, <span class="comment"># 참, 거짓을 저장한 객체</span></span><br><span class="line">  yes, <span class="comment"># test가 참일 때 선택할 값</span></span><br><span class="line">  no <span class="comment"># test가 거짓일 때 선택할 값</span></span><br><span class="line">)</span><br><span class="line">test에 다수의 <span class="literal">TRUE</span>, <span class="literal">FALSE</span>가 저장되어 있을 때 <span class="literal">TRUE</span>에 대해서는 yes 값을, <span class="literal">FALSE</span>에 대해서는 no 값을 선택하여 반환한다.</span><br></pre></td></tr></table></figure>
+<h3 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> data) &#123;</span><br><span class="line">  i를 사용한 문장</span><br><span class="line">&#125;</span><br><span class="line">data에 들어있는 각각의 값을 변수 i에 할당하면서 각각에 대해 블록 안의 문장을 수행한다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(cond) &#123;</span><br><span class="line">  조건이 참일 때 수행할 문장</span><br><span class="line">&#125;</span><br><span class="line">조건 cond가 참일 때 블록 안의 문장을 수행한다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">repeat</span> &#123;</span><br><span class="line">  반복해수 수행할 문장</span><br><span class="line">&#125;</span><br><span class="line">블록 안의 문장을 반복해서 수행한다. <span class="keyword">repeat</span>은 다른 언어의 do-<span class="keyword">while</span>에 해당한다.</span><br></pre></td></tr></table></figure>
+<p>반복문 내 블록에서는 break, next 문을 사용해 반복의 수행을 조정할 수 있다.</p>
+<ul>
+<li>break : 반복문을 종료한다.</li>
+<li>next: 현재 수행 중인 반복문 블록의 수행을 중단하고 다음 반복을 시작한다.</li>
+</ul>
+<h2 id="03-연산"><a href="#03-연산" class="headerlink" title="03 연산"></a>03 연산</h2><h3 id="수치-연산"><a href="#수치-연산" class="headerlink" title="수치 연산"></a>수치 연산</h3><ul>
+<li>+, -, *, /: 사칙 연산</li>
+<li>n %% m: n 을 m으로 나눈 나머지</li>
+<li>n %/% m: n 을 m으로 나눈 몫</li>
+<li>n^m: n의 m승</li>
+<li>exp(n): e의 n승</li>
+<li>log(x, base=exp(1)): logbase(x), 만약 base가 지정되지 않으면 loge(x)를 계산</li>
+<li>log2(x), log10(x): 각각 log2(x), log10(x)를 계산</li>
+<li>sin(x), cos(x), tan(x): 삼각함수</li>
+</ul>
+<h3 id="벡터-연산"><a href="#벡터-연산" class="headerlink" title="벡터 연산"></a>벡터 연산</h3><p>벡터 연산은 벡터 또는 리스트를 한 번에 연산하는 것을 말한다. 벡터 연산이 중요한 이유는 for 문 등을 사용해 값을 하나씩 처리해나가는 대신 벡터나 리스트를 한 번에 처리하는 것이 더 효율적이고 편리하기 때문이다.</p>
+<p>예)<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">&gt; x + x</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span></span><br><span class="line">&gt; x == x</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">TRUE</span></span><br><span class="line">&gt; x == c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">TRUE</span></span><br><span class="line">&gt; c(<span class="literal">T</span>, <span class="literal">T</span>, <span class="literal">T</span>) &amp; c(<span class="literal">T</span>, <span class="literal">F</span>, <span class="literal">T</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">TRUE</span></span><br></pre></td></tr></table></figure></p>
+<p>R의 함수들은 기본적으로 이러한 벡터 기반 연산을 지원한다.</p>
+<p>예)<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">&gt; sum(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">15</span></span><br><span class="line">&gt; mean(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; median(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="NA의-처리"><a href="#NA의-처리" class="headerlink" title="NA의 처리"></a>NA의 처리</h3><p>NA는 값이 기록되지 않았거나 관칙되지 않은 경우 데이터에 저장되는 값으로 ‘결측치’라고 부른다.</p>
+<p>데이터에 NA가 포함되어 있을 경우 연산 결과가 NA로 바뀐다.</p>
+<p>이러한 문제점을 해결하기 위해 많은 R 함수에서 na.rm을 함수 인자로 받는다. na.rm은 NA값이 있을 때 해당하는 값을 연산에서 제외할 것인지를 지정하는 데 사용한다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="literal">NA</span> + <span class="number">1</span></span><br><span class="line">[<span class="number">1</span>] <span class="literal">NA</span></span><br><span class="line">&gt; sum(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="literal">NA</span>))</span><br><span class="line">[<span class="number">1</span>] <span class="literal">NA</span></span><br><span class="line">&gt; sum(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="literal">NA</span>), na.rm=<span class="literal">TRUE</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>NA값에 따라 처리를 다르게 하는 함수들이 존재한다</p>
+<ul>
+<li>na.fail(object, …) : object에 NA가 포함되어 있으면 실패한다</li>
+<li>na.omit(object, …) ; object에 NA가 포함되어 있으면 이를 제외한다.</li>
+<li>na.exclude(object, …) : object에 NA가 포함되어 있으면 이를 제외한다는 점에서 na.omit과 동일하다. 그러나 naresid, napredict를 사용하는 함수에서 NA로 제외한 행을 결과에 다시 추가한다는 점이 다르다.</li>
+<li>na.pass(object, …) : object에 NA가 포함되어 있더라도 통과시킨다.</li>
+</ul>
+<h2 id="04-함수의-정의"><a href="#04-함수의-정의" class="headerlink" title="04 함수의 정의"></a>04 함수의 정의</h2><h3 id="기본-정의"><a href="#기본-정의" class="headerlink" title="기본 정의"></a>기본 정의</h3><p>함수의 정의는 다음과 같다<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function_name &lt;- <span class="keyword">function</span>(인자, 인자, <span class="keyword">...</span>) &#123;</span><br><span class="line">  함수 본문</span><br><span class="line">  <span class="keyword">return</span>(반환 값) <span class="comment"># 반환 값이 없다면 생략</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="가변길이-인자"><a href="#가변길이-인자" class="headerlink" title="가변길이 인자"></a>가변길이 인자</h3><p>R의 함수는 가변인자를 인자로 받을 수 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; f &lt;- <span class="keyword">function</span>(<span class="keyword">...</span>) &#123;</span><br><span class="line">  args &lt;- list(<span class="keyword">...</span>)</span><br><span class="line">  <span class="keyword">for</span>(a <span class="keyword">in</span> args) &#123;</span><br><span class="line">    print(a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&gt; f(<span class="string">'3'</span>, <span class="string">'4'</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"3"</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"4"</span></span><br></pre></td></tr></table></figure>
+<h3 id="주첩-함수"><a href="#주첩-함수" class="headerlink" title="주첩 함수"></a>주첩 함수</h3><p>함수 안에 또 다른 함수를 정의하여 사용할 수 있다. 이를 중첩함수 라고 부른다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; f &lt;- <span class="keyword">function</span>(x, y) &#123;</span><br><span class="line">  print(x)</span><br><span class="line">  g &lt;- <span class="keyword">function</span>(y) &#123;</span><br><span class="line">    print(y)</span><br><span class="line">  &#125;</span><br><span class="line">  g(y)</span><br><span class="line">&#125;</span><br><span class="line">&gt; f(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="05-스코프"><a href="#05-스코프" class="headerlink" title="05 스코프"></a>05 스코프</h2><p>코드에 기술한 변수의 사용범위를 정하는것을 스코프라고 한다. R에서는 대부분의 현대적인 프로그래밍 언어가 그러하듯이 문법적 스코프를 사용하며, 문법적 스코프는 변수가 정의된 블록 내부에서만 변수를 접근할 수 있는 구칙을 말한다.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-R의-특징"><span class="toc-number">1.</span> <span class="toc-text">01 R의 특징</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-흐름-제어-조건문과-반복문"><span class="toc-number">2.</span> <span class="toc-text">02 흐름 제어(조건문과 반복문)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if"><span class="toc-number">2.1.</span> <span class="toc-text">if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#반복문"><span class="toc-number">2.2.</span> <span class="toc-text">반복문</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-연산"><span class="toc-number">3.</span> <span class="toc-text">03 연산</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#수치-연산"><span class="toc-number">3.1.</span> <span class="toc-text">수치 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#벡터-연산"><span class="toc-number">3.2.</span> <span class="toc-text">벡터 연산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NA의-처리"><span class="toc-number">3.3.</span> <span class="toc-text">NA의 처리</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-함수의-정의"><span class="toc-number">4.</span> <span class="toc-text">04 함수의 정의</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#기본-정의"><span class="toc-number">4.1.</span> <span class="toc-text">기본 정의</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#가변길이-인자"><span class="toc-number">4.2.</span> <span class="toc-text">가변길이 인자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#주첩-함수"><span class="toc-number">4.3.</span> <span class="toc-text">주첩 함수</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-스코프"><span class="toc-number">5.</span> <span class="toc-text">05 스코프</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3/&text=R-R프로그래밍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3/&is_video=false&description=R-R프로그래밍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R-R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3/&name=R-R프로그래밍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Mouuaw
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'mouuawblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
