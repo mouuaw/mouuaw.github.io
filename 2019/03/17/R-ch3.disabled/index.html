@@ -9,14 +9,14 @@
     <meta name="description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
 <meta name="keywords" content="R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R-R프로그래밍">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/R-ch3/index.html">
+<meta property="og:title" content="R - R프로그래밍">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/R-ch3.disabled/index.html">
 <meta property="og:site_name" content="Mouuaw">
 <meta property="og:description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-17T03:31:38.357Z">
+<meta property="og:updated_time" content="2019-03-23T15:57:27.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R-R프로그래밍">
+<meta name="twitter:title" content="R - R프로그래밍">
 <meta name="twitter:description" content="01 R의 특징(생략) 02 흐름 제어(조건문과 반복문)if12345if(cond) &amp;#123;  cond가 참일 때 실행할 문장&amp;#125;else &amp;#123;  cond가 거짓일 때 실행할 문장 &amp;#125; 다수의 TRUE, FALSE 데이터를 한 번에 처리한다면 ifelse() 함수를 고려할 수 있다. 123456ifelse(  test, # 참, 거짓">
     
     
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>R-R프로그래밍</title>
+    <title>R - R프로그래밍</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -73,10 +73,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/03/20/R-ch4/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/03/20/R-ch4.disabled/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/03/12/R-ch2/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/03/12/R-ch2.disabled/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -89,16 +89,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3/&text=R-R프로그래밍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3/&is_video=false&description=R-R프로그래밍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=R-R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3/&name=R-R프로그래밍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3.disabled/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&text=R - R프로그래밍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&is_video=false&description=R - R프로그래밍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R - R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3.disabled/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&name=R - R프로그래밍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -115,7 +115,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        R-R프로그래밍
+        R - R프로그래밍
     </h1>
 
 
@@ -234,16 +234,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3/&text=R-R프로그래밍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3/&is_video=false&description=R-R프로그래밍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=R-R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3/&title=R-R프로그래밍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3/&name=R-R프로그래밍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/17/R-ch3.disabled/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&text=R - R프로그래밍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&is_video=false&description=R - R프로그래밍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=R - R프로그래밍&body=Check out this article: http://yoursite.com/2019/03/17/R-ch3.disabled/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&title=R - R프로그래밍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/17/R-ch3.disabled/&name=R - R프로그래밍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
